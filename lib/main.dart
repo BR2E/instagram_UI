@@ -9,7 +9,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: InstagramUI(),
+      debugShowCheckedModeBanner: false,
+      home: const InstagramUI(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+        ),
+        useMaterial3: true,
+        colorScheme: const ColorScheme.dark(background: Colors.black),
+        fontFamily: 'Satisfy Regular',
+      ),
     );
   }
 }
