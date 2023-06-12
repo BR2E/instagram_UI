@@ -40,6 +40,7 @@ class Publications extends StatelessWidget {
                 ),
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircularButton(
                     story: ModelCircularButton(
@@ -50,7 +51,6 @@ class Publications extends StatelessWidget {
                       sizeImg: 40,
                     ),
                   ),
-                  const SizedBox(width: 2),
                   Flexible(
                     child: Text(
                       dataPublication.name,
