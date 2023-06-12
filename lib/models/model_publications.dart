@@ -1,9 +1,9 @@
 class ModelPublications {
   final String imgPublicationUrl;
   final String name;
-  final String likes;
+  final int likes;
   final String description;
-  final String comments;
+  final int comments;
   final DateTime date;
 
   ModelPublications({

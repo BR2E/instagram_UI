@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:timeago/timeago.dart' as timeago;
 import '../icons/icons_instagram_icons.dart';
 import '../models/model_circular_button.dart';
+import '../models/model_publications.dart';
 import 'circular_button.dart';
 
 class Publications extends StatelessWidget {
-  const Publications({super.key});
+  final ModelPublications dataPublication;
+
+  const Publications({
+    super.key,
+    required this.dataPublication,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
@@ -19,63 +25,59 @@ class Publications extends StatelessWidget {
         ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
             children: [
               Container(
                 height: 650,
                 width: double.infinity,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(
-                        'https://images5.alphacoders.com/131/1316292.jpeg'),
+                    image: NetworkImage(dataPublication.imgPublicationUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(2),
-                child: Row(
-                  children: [
-                    CircularButton(
-                      story: ModelCircularButton(
-                        imgUrl: '',
-                        newStory: false,
-                        border: true,
-                        sizeBorder: 50,
-                        sizeImg: 40,
+              Row(
+                children: [
+                  CircularButton(
+                    story: ModelCircularButton(
+                      imgUrl: dataPublication.imgPublicationUrl,
+                      newStory: false,
+                      border: true,
+                      sizeBorder: 50,
+                      sizeImg: 40,
+                    ),
+                  ),
+                  const SizedBox(width: 2),
+                  Flexible(
+                    child: Text(
+                      dataPublication.name,
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const Spacer(),
+                  OutlinedButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Seguir',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
                       ),
                     ),
-                    const SizedBox(width: 2),
-                    const Flexible(
-                      child: Text(
-                        'EfrfeEssssssEssssssEssssssEssssss',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    splashRadius: 1,
+                    icon: const Icon(
+                      Icons.more_vert,
+                      size: 30,
                     ),
-                    const Spacer(),
-                    OutlinedButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Seguir',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 0),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.more_vert,
-                        size: 30,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               )
             ],
           ),
@@ -109,26 +111,35 @@ class Publications extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  '16k Me gusta',
-                  style: TextStyle(
+                  '${dataPublication.likes} Me gusta',
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Text(
-                  'loremasdasdasdasdasdasdadasdasdasdasdasdsssssssss',
-                  style: TextStyle(
+                  dataPublication.description,
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Text(
-                  'Ver los 111 comentarios',
-                  style: TextStyle(
+                  'Ver los ${dataPublication.comments} comentarios',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff333333),
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  timeago.format(dataPublication.date),
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff333333),
