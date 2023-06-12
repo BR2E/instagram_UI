@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/model_stories.dart';
 import 'package:faker/faker.dart';
 
-import 'circular_button.dart';
+import 'circular_button_story.dart';
 
 class Stories extends StatelessWidget {
   const Stories({super.key});
@@ -14,7 +14,7 @@ class Stories extends StatelessWidget {
 
     for (int i = 0; i < 10; i++) {
       final stori = ModelStories(
-        imgUrl: faker.image.image(),
+        imgUrl: faker.image.image(random: true),
         newStory: i == 0 ? true : false,
         userName: i == 0 ? 'Tu historia' : faker.person.firstName(),
       );
