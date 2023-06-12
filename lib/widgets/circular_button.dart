@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../models/model_stories.dart';
+import '../models/model_circular_button.dart';
+import 'package:gradient_borders/gradient_borders.dart';
 
 class CircularButton extends StatelessWidget {
-  final ModelStories story;
+  final ModelCircularButton story;
 
   const CircularButton({
     super.key,
@@ -18,9 +19,35 @@ class CircularButton extends StatelessWidget {
           Stack(
             alignment: Alignment.center,
             children: [
+              if (story.border)
+                Container(
+                  width: story.sizeBorder,
+                  height: story.sizeBorder,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: GradientBoxBorder(
+                      gradient: LinearGradient(
+                        colors: <Color>[
+                          Color(0xffFE0060),
+                          Color(0xffFF8F00),
+                        ],
+                      ),
+                      width: 3,
+                    ),
+                  ),
+                ),
+              if (story.border == false)
+                Container(
+                  width: story.sizeBorder,
+                  height: story.sizeBorder,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 3, color: Colors.black),
+                  ),
+                ),
               Container(
-                width: 80,
-                height: 80,
+                width: story.sizeImg,
+                height: story.sizeImg,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
@@ -32,8 +59,8 @@ class CircularButton extends StatelessWidget {
               ),
               if (story.newStory)
                 Positioned(
-                  bottom: 0,
-                  right: 0,
+                  bottom: 6,
+                  right: 6,
                   child: Container(
                     width: 25,
                     height: 25,
@@ -53,8 +80,6 @@ class CircularButton extends StatelessWidget {
                 )
             ],
           ),
-          const SizedBox(height: 10),
-          Text(story.userName),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 class ModelPublications {
+  final String imgPublicationUrl;
   final String name;
   final String likes;
   final String description;
@@ -6,6 +7,7 @@ class ModelPublications {
   final DateTime date;
 
   ModelPublications({
+    required this.imgPublicationUrl,
     required this.name,
     required this.likes,
     required this.description,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../icons/icons_instagram_icons.dart';
+import '../widgets/publications.dart';
 import '../widgets/stories.dart';
 
 class InstagramUI extends StatelessWidget {
@@ -35,9 +36,11 @@ class InstagramUI extends StatelessWidget {
           SizedBox(width: 20),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: const [
           Stories(),
+          SizedBox(height: 30),
+          Publications(),
         ],
       ),
     );

@@ -25,4 +25,8 @@ class IconsInstagram {
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart =
       IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData ovalBlackSpeechBubble =
+      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bookmark =
+      IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
