@@ -4,7 +4,7 @@ import 'package:device_preview/device_preview.dart';
 
 void main() => runApp(
       DevicePreview(
-        enabled: true,
+        enabled: false,
         builder: (context) => const MyApp(), // Wrap your app
       ),
     );
@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
         colorScheme: const ColorScheme.dark(background: Colors.black),
-        fontFamily: 'Satisfy Regular',
       ),
     );
   }

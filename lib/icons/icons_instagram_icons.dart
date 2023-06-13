@@ -29,4 +29,6 @@ class IconsInstagram {
       IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData bookmark =
       IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData instagramlogo =
+      IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
