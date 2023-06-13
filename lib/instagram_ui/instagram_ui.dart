@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import '../icons/icons_instagram_icons.dart';
 import '../models/model_publications.dart';
+import '../widgets/bottom_navigator_items.dart';
 import '../widgets/publications.dart';
 import '../widgets/stories.dart';
 
@@ -72,6 +73,7 @@ class InstagramUI extends StatelessWidget {
           )
         ],
       ),
+      bottomNavigationBar: const ItemsNavigatorBar(),
     );
   }
 }
